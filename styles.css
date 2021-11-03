@@ -1,0 +1,104 @@
+@font-face {
+  font-family: "future";
+  src: url("Fonts/MADE Evolve Sans Thin EVO (PERSONAL USE).otf") format("opentype");
+}
+
+body {
+  color: white;
+  background-color: black;
+}
+
+.bodyBackground {
+  width: 100%;
+  height: auto;
+}
+
+.Toolbar {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 1px;
+  border-style: solid;
+     border-color: white;
+}
+
+a {
+  position: relative;
+  z-index: 1;
+}
+
+.Toolbar a {
+  font-family: "future";
+  display: block;
+  float: left;
+  text-align: center;
+  color: white;
+  padding: 14px 16px;
+  font-size: 30px;
+}
+
+/* .Toolbar a:hover {
+  background-color: #323332;
+  color: black;
+
+}
+
+.Toolbar a:active {
+color: red;
+} */
+.colorWipeContainer {
+   margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.colorWipe {
+  position: relative;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+}
+
+.colorWipe::before {
+  content: "";
+  position: absolute;
+  height: 2%;
+  width: 0;
+  background-color:rgba(255, 255, 255);
+  right: 0;
+  z-index: 0;
+  top: 50%;
+  transition: all 0.5s;
+}
+
+/* .colorWipe::after {
+  content: "";
+  position: absolute;
+  height: 33.33%;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.88);
+  left: 0;
+  z-index: 0;
+  bottom: 0;
+  transition: all 0.5s;
+} */
+
+/* a::after {
+  position: absolute;
+  content: "";
+  height: 33.33%;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.88);
+  bottom: 66.66%;
+  left: 0;
+  transition: all 0.5s;
+} */
+
+.colorWipe:hover::before,
+.colorWipe:hover::after,
+.colorwipe:hover a::before {
+  width: 100%;
+}

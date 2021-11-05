@@ -8,6 +8,15 @@ body {
   background-color: black;
 }
 
+.moonStyle{
+  position: absolute;
+      left: 8%;
+      top: 5%;
+      width: 10%;
+      height: auto;
+
+}
+
 .bodyBackground {
   width: 100%;
   height: auto;
@@ -16,7 +25,7 @@ body {
 .Toolbar {
   width: auto;
   margin: 0 10%;
-  position: fixed;
+  position: relative;
   left: 0;
   right: 0;
   bottom: 0;

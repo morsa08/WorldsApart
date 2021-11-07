@@ -17,11 +17,6 @@ body {
 
 }
 
-.has-dflex-center{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
 
 .bodyBackground {
   width: 100%;
@@ -130,4 +125,17 @@ color: red;
 .about {
   text-align: center;
   font-family: "future";
+}
+
+/* carousel */
+
+.has-dflex-center{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+.svg-inline--fa {
+width: 0.5em;
 }

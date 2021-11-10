@@ -17,11 +17,10 @@ body {
 
 }
 
-
-.bodyBackground {
-  width: 100%;
-  height: auto;
-}
+ .mainBackground{
+   width: 100%;
+   
+ }
 
 .Toolbar {
   width: auto;
@@ -130,9 +129,9 @@ color: red;
 /* carousel */
 
 .has-dflex-center{
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: flex ;
+  align-items: center  ;
+  justify-content: center ;
 }
 
 

@@ -1,51 +1,50 @@
 /*jshint esversion: 6 */
 
-var image = document.getElementById("mainBackground");
 var moon = document.getElementById("moon");
-
-if (moon != null){
-moon.addEventListener("click", function(){
-  pictureSwap();
-});}
+// DEBUG:
+if (moon != null) {
+  moon.addEventListener("click", function() {
+    pictureSwap();
+  });
+}
 
 function pictureSwap() {
 
+  var image = document.getElementById("mainBackground");
   if (image.src.match("Electrical")) {
     image.src = "Pictures/FabianRZRonBusWEBSITE.jpg";
 
-  }
 
-else {
-image.src = "Pictures/Electrical Station.jpg";
-}
+  } else {
+    image.src = "Pictures/Electrical Station.jpg";
+
+  }
 }
 
 
 // HIGH RES BACKGROUND LOADER
 
 
-function ResImageReplacement(element)
-{
+function ResImageReplacement(element) {
   var highResImage = document.createElement("IMG");
   var lowResImage = element.getElementsByTagName('img')[0];
   highResImage.setAttribute("class", "mainBackground");
   highResImage.setAttribute("id", "mainBackground");
   highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
   highResImage.addEventListener('load',
-  () => {
-    element.removeChild(lowResImage);
-    element.appendChild(highResImage);
-  });
+    () => {
+      element.removeChild(lowResImage);
+      element.appendChild(highResImage);
+    });
 
 
-  
+
 }
 
 let resImageReplacements = document.getElementsByClassName('res-image-replacement');
 
-for(let i = 0; i < resImageReplacements.length; i++)
-{
-	ResImageReplacement(resImageReplacements[i]);
+for (let i = 0; i < resImageReplacements.length; i++) {
+  ResImageReplacement(resImageReplacements[i]);
 
 }
 

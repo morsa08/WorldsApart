@@ -6,19 +6,25 @@ if (moon != null) {
   moon.addEventListener("click", function() {
     pictureSwap();
   });
+
 }
 
 function pictureSwap() {
 
   var image = document.getElementById("mainBackground");
   if (image.src.match("Electrical")) {
-    image.src = "Pictures/FabianRZRonBusWEBSITE.jpg";
+    image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
+    image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
+    image.setAttribute("class", "picturesToBeSwapped");
 
 
   } else {
-    image.src = "Pictures/Electrical Station.jpg";
+    image.src = "Pictures/Electrical-Station-Small.jpg";
+    image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
+    image.setAttribute("class", "picturesToBeSwapped");
 
   }
+ 
 }
 
 
@@ -27,7 +33,7 @@ function pictureSwap() {
 
 function ResImageReplacement(element) {
   var highResImage = document.createElement("IMG");
-  var lowResImage = element.getElementsByTagName('img')[0];
+  var lowResImage = element.getElementsByClassName('picturesToBeSwapped')[0];
   highResImage.setAttribute("class", "mainBackground");
   highResImage.setAttribute("id", "mainBackground");
   highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));

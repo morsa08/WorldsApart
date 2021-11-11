@@ -1,8 +1,7 @@
 /*jshint esversion: 6 */
 
 var moon = document.getElementById("moon");
-// DEBUG:
-if (moon != null) {
+ if (moon != null) {
   moon.addEventListener("click", function() {
     pictureSwap();
   });
@@ -24,23 +23,27 @@ function pictureSwap() {
     image.setAttribute("class", "picturesToBeSwapped");
 
   }
- 
+ResImageReplacement(newElement)
+
+
 }
 
+var newElement = document.getElementById("mainBackground");
 
 // HIGH RES BACKGROUND LOADER
 
 
-function ResImageReplacement(element) {
+function ResImageReplacement(newElement) {
   var highResImage = document.createElement("IMG");
-  var lowResImage = element.getElementsByClassName('picturesToBeSwapped')[0];
+  var lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
+  var resReplacement = document.getElementsByClassName("res-image-replacement")[0];
   highResImage.setAttribute("class", "mainBackground");
   highResImage.setAttribute("id", "mainBackground");
   highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
   highResImage.addEventListener('load',
     () => {
-      element.removeChild(lowResImage);
-      element.appendChild(highResImage);
+      resReplacement.removeChild(lowResImage);
+      resReplacement.appendChild(highResImage);
     });
 
 

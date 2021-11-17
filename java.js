@@ -1,8 +1,9 @@
 /*jshint esversion: 6 */
 
 var moon = document.getElementById("moon");
- if (moon != null) {
+if (moon != null) {
   moon.addEventListener("click", function() {
+    i = 0;
     pictureSwap();
   });
 
@@ -10,7 +11,7 @@ var moon = document.getElementById("moon");
 
 function pictureSwap() {
 
-  var image = document.getElementById("mainBackground");
+  var image = document.getElementsByClassName("mainBackground")[i];
   if (image.src.match("Electrical")) {
     image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
     image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
@@ -21,41 +22,48 @@ function pictureSwap() {
     image.src = "Pictures/Electrical-Station-Small.jpg";
     image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
     image.setAttribute("class", "picturesToBeSwapped");
-
   }
-ResImageReplacement(newElement)
 
-
+  lazyLoaderSetup( i);
 }
 
-var newElement = document.getElementById("mainBackground");
-
-// HIGH RES BACKGROUND LOADER
-
-
-function ResImageReplacement(newElement) {
-  var highResImage = document.createElement("IMG");
-  var lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
-  var resReplacement = document.getElementsByClassName("res-image-replacement")[0];
-  highResImage.setAttribute("class", "mainBackground");
-  highResImage.setAttribute("id", "mainBackground");
-  highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
-  highResImage.addEventListener('load',
-    () => {
-      resReplacement.removeChild(lowResImage);
-      resReplacement.appendChild(highResImage);
-    });
-
-
-
-}
-
-let resImageReplacements = document.getElementsByClassName('res-image-replacement');
+// SET RES-IMAGE-REPLACEMENT, AND RUN LAZYLOADERSETUP ON EACH IMAGE
+resImageReplacements = document.getElementsByClassName('res-image-replacement');
 
 for (let i = 0; i < resImageReplacements.length; i++) {
-  ResImageReplacement(resImageReplacements[i]);
+     lazyLoaderSetup(i);
 
 }
+
+
+
+function lazyLoaderSetup( i) {
+  highResImage = document.createElement("IMG");
+  lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
+  resReplacement = document.getElementsByClassName("res-image-replacement")[i];
+
+  // SET HIGH RES IMAGE UP WITH CLASS, ID, AND HIGH RES SOURCE
+  highResImage.setAttribute("class", "mainBackground");
+  highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
+
+  // IF THE LOW RES IMAGE CLASS EXISTS, ADD THE LOAD LISTENER WHICH WILL RUN REMOVEAPPEND FUNCTION
+  if (resReplacement.contains(lowResImage)) {
+    highResImage.addEventListener('load', removeAppend(i));
+  }
+}
+
+
+
+
+// REMOVE THE LOW RES ELEMENT, ADD THE HIGH RES ELEMENT, REMOVE LISTENER
+function removeAppend(i) {
+  resReplacement.removeChild(lowResImage);
+  resReplacement.appendChild(highResImage);
+  highResImage.removeEventListener('load', removeAppend);
+  lowResImage= document.getElementsByClassName("picturesToBeSwapped")[i];
+}
+
+
 
 // CAROUSEL
 

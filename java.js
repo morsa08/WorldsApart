@@ -4,77 +4,88 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-var moon = document.getElementById("moon");
-
-document.getElementById("fade").style.opacity = 1;
- document.getElementById("fade").style.opacity = 0;
- document.getElementById("fade").style.opacity = 1 ;
-
-if (moon != null) {
-  moon.addEventListener("click", function() {
-    i = 0;
-    pictureSwap();
-  });
-
-}
-
-function pictureSwap() {
-
-  var image = document.getElementsByClassName("mainBackground")[i];
-  if (image.src.match("Electrical")) {
-    image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
-    image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
-    image.setAttribute("class", "picturesToBeSwapped");
+  var moon = document.getElementById("moon");
+  var fade = document.getElementById("fade");
+  const qualityBtn = document.getElementById("qualityBtn");
 
 
-  } else {
-    image.src = "Pictures/Electrical-Station-Small.jpg";
-    image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
-    image.setAttribute("class", "picturesToBeSwapped");
+  if (fade != null) {
+    fade.style.opacity = 1;
+    fade.style.opacity = 0;
+    fade.style.opacity = 1;
   }
-}
 
-// SET RES-IMAGE-REPLACEMENT, AND RUN LAZYLOADERSETUP ON EACH IMAGE
-resImageReplacements = document.getElementsByClassName('res-image-replacement');
+  if (moon != null) {
+    moon.addEventListener("click", function() {
+      i = 0;
+      pictureSwap();
+    });
 
-document.getElementById("qualityBtn").addEventListener("click", highQualityOption);
-function highQualityOption(){
-  for (let i = 0; i < resImageReplacements.length; i++) {
-    lazyLoaderSetup(i);
   }
-}
+
+  function pictureSwap() {
+
+    var image = document.getElementsByClassName("mainBackground")[i];
+    if (image.src.match("Electrical")) {
+      image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
+      image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
+      image.setAttribute("class", "picturesToBeSwapped");
 
 
-
-function lazyLoaderSetup( i) {
-  highResImage = document.createElement("IMG");
-  lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
-  resReplacement = document.getElementsByClassName("res-image-replacement")[i];
-
-  // SET HIGH RES IMAGE UP WITH CLASS, ID, AND HIGH RES SOURCE
-  highResImage.setAttribute("class", "mainBackground");
-  highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
-
-  // IF THE LOW RES IMAGE CLASS EXISTS, ADD THE LOAD LISTENER WHICH WILL RUN REMOVEAPPEND FUNCTION
-  if (resReplacement.contains(lowResImage)) {
-    highResImage.addEventListener('load', removeAppend());
+    } else {
+      image.src = "Pictures/Electrical-Station-Small.jpg";
+      image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
+      image.setAttribute("class", "picturesToBeSwapped");
+    }
   }
-}
+
+  // SET RES-IMAGE-REPLACEMENT, AND RUN LAZYLOADERSETUP ON EACH IMAGE
+  resImageReplacements = document.getElementsByClassName('res-image-replacement');
 
 
 
 
-// REMOVE THE LOW RES ELEMENT, ADD THE HIGH RES ELEMENT, REMOVE LISTENER
-function removeAppend() {
-  resReplacement.removeChild(lowResImage);
-  resReplacement.appendChild(highResImage);
-  highResImage.removeEventListener('load', removeAppend);
+  if (qualityBtn != null) {
+    qualityBtn.addEventListener("click", highQualityOption);
+  }
 
-}
+  function highQualityOption() {
+    for (let i = 0; i < resImageReplacements.length; i++) {
+      lazyLoaderSetup(i);
+    }
+  }
 
 
 
-// CAROUSEL
+  function lazyLoaderSetup(i) {
+    highResImage = document.createElement("IMG");
+    lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
+    resReplacement = document.getElementsByClassName("res-image-replacement")[i];
+
+    // SET HIGH RES IMAGE UP WITH CLASS, ID, AND HIGH RES SOURCE
+    highResImage.setAttribute("class", "mainBackground");
+    highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
+
+    // IF THE LOW RES IMAGE CLASS EXISTS, ADD THE LOAD LISTENER WHICH WILL RUN REMOVEAPPEND FUNCTION
+    if (resReplacement.contains(lowResImage)) {
+      highResImage.addEventListener('load', removeAppend());
+    }
+  }
+
+
+
+
+  // REMOVE THE LOW RES ELEMENT, ADD THE HIGH RES ELEMENT, REMOVE LISTENER
+  function removeAppend() {
+    resReplacement.removeChild(lowResImage);
+    resReplacement.appendChild(highResImage);
+    highResImage.removeEventListener('load', removeAppend);
+
+  }
+
+
+
+  // CAROUSEL
 
   document.querySelectorAll(".carousel-container").forEach((carousel) => {
     insertNumbers(carousel);

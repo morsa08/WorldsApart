@@ -1,6 +1,15 @@
 /*jshint esversion: 6 */
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
 var moon = document.getElementById("moon");
+
+document.getElementById("fade").style.opacity = 1;
+ document.getElementById("fade").style.opacity = 0;
+ document.getElementById("fade").style.opacity = 1 ;
+
 if (moon != null) {
   moon.addEventListener("click", function() {
     i = 0;
@@ -23,16 +32,16 @@ function pictureSwap() {
     image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
     image.setAttribute("class", "picturesToBeSwapped");
   }
-
-  lazyLoaderSetup( i);
 }
 
 // SET RES-IMAGE-REPLACEMENT, AND RUN LAZYLOADERSETUP ON EACH IMAGE
 resImageReplacements = document.getElementsByClassName('res-image-replacement');
 
-for (let i = 0; i < resImageReplacements.length; i++) {
-     lazyLoaderSetup(i);
-
+document.getElementById("qualityBtn").addEventListener("click", highQualityOption);
+function highQualityOption(){
+  for (let i = 0; i < resImageReplacements.length; i++) {
+    lazyLoaderSetup(i);
+  }
 }
 
 
@@ -48,7 +57,7 @@ function lazyLoaderSetup( i) {
 
   // IF THE LOW RES IMAGE CLASS EXISTS, ADD THE LOAD LISTENER WHICH WILL RUN REMOVEAPPEND FUNCTION
   if (resReplacement.contains(lowResImage)) {
-    highResImage.addEventListener('load', removeAppend(i));
+    highResImage.addEventListener('load', removeAppend());
   }
 }
 
@@ -56,18 +65,17 @@ function lazyLoaderSetup( i) {
 
 
 // REMOVE THE LOW RES ELEMENT, ADD THE HIGH RES ELEMENT, REMOVE LISTENER
-function removeAppend(i) {
+function removeAppend() {
   resReplacement.removeChild(lowResImage);
   resReplacement.appendChild(highResImage);
   highResImage.removeEventListener('load', removeAppend);
-  lowResImage= document.getElementsByClassName("picturesToBeSwapped")[i];
+
 }
 
 
 
 // CAROUSEL
 
-document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".carousel-container").forEach((carousel) => {
     insertNumbers(carousel);
 

@@ -19,7 +19,7 @@ body {
 
  .mainBackground{
    width: 100%;
-   
+
  }
 
 .Toolbar {
@@ -137,4 +137,9 @@ color: red;
 
 .svg-inline--fa {
 width: 0.5em;
+}
+
+#fade {
+  opacity: 0;
+  transition: 3s;
 }

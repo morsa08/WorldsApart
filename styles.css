@@ -8,19 +8,17 @@ body {
   background-color: black;
 }
 
-.moonStyle{
+.moonStyle {
   position: absolute;
-      left: 8%;
-      top: 5%;
-      width: 10%;
-      height: auto;
-
+  left: 8%;
+  top: 5%;
+  width: 10%;
+  height: auto;
 }
 
- .mainBackground{
-   width: 100%;
-
- }
+.mainBackground {
+  width: 100%;
+}
 
 .Toolbar {
   width: auto;
@@ -127,16 +125,25 @@ color: red;
 }
 
 /* carousel */
-
-.has-dflex-center{
-  display: flex ;
-  align-items: center  ;
-  justify-content: center ;
+.has-dflex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.quality{
+  display: flex;
+  justify-content: right;
+}
+
+.qualtyDiv{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
 
 .svg-inline--fa {
-width: 0.5em;
+  width: 0.5em;
 }
 
 #fade {

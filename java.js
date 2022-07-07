@@ -29,13 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (image.src.match("Electrical")) {
       image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
       image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
-      image.setAttribute("class", "picturesToBeSwapped");
+      image.setAttribute("class", "");
+      image.classList.add("class", "picturesToBeSwapped", "mainBackground");
 
 
     } else {
       image.src = "Pictures/Electrical-Station-Small.jpg";
       image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
-      image.setAttribute("class", "picturesToBeSwapped");
+        image.classList.add("class", "picturesToBeSwapped", "mainBackground");
     }
   }
 
@@ -61,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     highResImage = document.createElement("IMG");
     lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
     resReplacement = document.getElementsByClassName("res-image-replacement")[i];
+
 
     // SET HIGH RES IMAGE UP WITH CLASS, ID, AND HIGH RES SOURCE
     highResImage.setAttribute("class", "mainBackground");

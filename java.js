@@ -4,86 +4,59 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  var moon = document.getElementById("moon");
-  var fade = document.getElementById("fade");
+
+  const moon = document.getElementById("moon");
   const qualityBtn = document.getElementById("qualityBtn");
 
-
-  if (fade != null) {
-    fade.style.opacity = 1;
-    fade.style.opacity = 0;
-    fade.style.opacity = 1;
-  }
-
-  if (moon != null) {
-    moon.addEventListener("click", function() {
-      i = 0;
-      pictureSwap();
-    });
-
-  }
-
-  function pictureSwap() {
-
-    var image = document.getElementsByClassName("mainBackground")[i];
-    if (image.src.match("Electrical")) {
-      image.src = "Pictures/FabianRZRonBusWEBSITESmall.jpg";
-      image.setAttribute("high-res-src", "Pictures/FabianRZRonBusWEBSITE.jpg");
-      image.setAttribute("class", "");
-      image.classList.add("class", "picturesToBeSwapped", "mainBackground");
+  var index = 0;
 
 
-    } else {
-      image.src = "Pictures/Electrical-Station-Small.jpg";
-      image.setAttribute("high-res-src", "Pictures/Electrical Station.jpg");
-        image.classList.add("class", "picturesToBeSwapped", "mainBackground");
+  slide = document.getElementById("slide");
+  slideArray = slide.childNodes;
+  images = [];
+  images.push("Pictures/GoldenGateDark.jpg");
+  images.push("Pictures/ParkingGarage.jpg");
+  images.push("Pictures/GoldenGate.jpg");
+
+  function appendImages() {
+    for (i = 0; i < images.length; i++) {
+      newImage = document.createElement("img");
+      newImage.src = images[i];
+      slide.appendChild(newImage);
     }
   }
 
-  // SET RES-IMAGE-REPLACEMENT, AND RUN LAZYLOADERSETUP ON EACH IMAGE
-  resImageReplacements = document.getElementsByClassName('res-image-replacement');
+  function startSlide() {
 
-
-
-
-  if (qualityBtn != null) {
-    qualityBtn.addEventListener("click", highQualityOption);
-  }
-
-  function highQualityOption() {
-    for (let i = 0; i < resImageReplacements.length; i++) {
-      lazyLoaderSetup(i);
+    function fadeIn(slide) {
+      slide.className = ("fade");
     }
-  }
 
-
-
-  function lazyLoaderSetup(i) {
-    highResImage = document.createElement("IMG");
-    lowResImage = document.getElementsByClassName('picturesToBeSwapped')[0];
-    resReplacement = document.getElementsByClassName("res-image-replacement")[i];
-
-
-    // SET HIGH RES IMAGE UP WITH CLASS, ID, AND HIGH RES SOURCE
-    highResImage.setAttribute("class", "mainBackground");
-    highResImage.setAttribute('src', lowResImage.getAttribute("high-res-src"));
-
-    // IF THE LOW RES IMAGE CLASS EXISTS, ADD THE LOAD LISTENER WHICH WILL RUN REMOVEAPPEND FUNCTION
-    if (resReplacement.contains(lowResImage)) {
-      highResImage.addEventListener('load', removeAppend());
+    function fadeOut(slide) {
+      slide.className = ("");
     }
+
+    fadeOut(slideArray[index]);
+
+    index++;
+
+
+
+    if (index === slideArray.length) {
+      index = 0;
+    }
+
+    fadeIn(slideArray[index]);
+
+
+    setTimeout(function() {
+        startSlide();
+      },
+      3000);
   }
 
-
-
-
-  // REMOVE THE LOW RES ELEMENT, ADD THE HIGH RES ELEMENT, REMOVE LISTENER
-  function removeAppend() {
-    resReplacement.removeChild(lowResImage);
-    resReplacement.appendChild(highResImage);
-    highResImage.removeEventListener('load', removeAppend);
-
-  }
+  appendImages(images);
+  startSlide(slide, index);
 
 
 

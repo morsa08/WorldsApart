@@ -8,6 +8,10 @@ body {
   background-color: black;
 }
 
+.hidden {
+  display: none;
+}
+
 .moonStyle {
   position: absolute;
   left: 8%;
@@ -23,10 +27,10 @@ body {
 .Toolbar {
   width: auto;
   margin: 0 10%;
-  position: relative;
+  position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0%;
   border-radius: 1px;
   border-style: solid;
   border-color: rgba(255, 255, 255, 0.30);
@@ -47,15 +51,7 @@ a {
   font-size: 30px;
 }
 
-/* .Toolbar a:hover {
-  background-color: #323332;
-  color: black;
 
-}
-
-.Toolbar a:active {
-color: red;
-} */
 .colorWipeContainer {
   margin: 0;
   padding: 0;
@@ -84,27 +80,7 @@ color: red;
   transition: all 0.5s;
 }
 
-/* .colorWipe::after {
-  content: "";
-  position: absolute;
-  height: 33.33%;
-  width: 0;
-  background-color: rgba(255, 255, 255, 0.88);
-  left: 0;
-  z-index: 0;
-  bottom: 0;
-  transition: all 0.5s;
-} */
-/* a::after {
-  position: absolute;
-  content: "";
-  height: 33.33%;
-  width: 0;
-  background-color: rgba(255, 255, 255, 0.88);
-  bottom: 66.66%;
-  left: 0;
-  transition: all 0.5s;
-} */
+
 .colorWipe:hover::before,
 .colorWipe:hover::after,
 .colorwipe:hover a::before {
@@ -131,22 +107,24 @@ color: red;
   justify-content: center;
 }
 
-.quality{
-  display: flex;
-  justify-content: right;
+#slide{
+  height: 100%;
 }
 
-.qualtyDiv{
+#slide img {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  width: 100%;
+  opacity: 0;
+  transition: 3s;
 }
+
+#slide img.fade {
+  width: 100%;
+  opacity: 1;
+}
+
+
 
 .svg-inline--fa {
   width: 0.5em;
-}
-
-#fade {
-  opacity: 0;
-  transition: 3s;
 }

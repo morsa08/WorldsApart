@@ -7,16 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const moon = document.getElementById("moon");
   const qualityBtn = document.getElementById("qualityBtn");
-
   var index = 0;
-
-
-  slide = document.getElementById("slide");
-  slideArray = slide.childNodes;
-  images = [];
-  images.push("Pictures/GoldenGateDark.jpg");
+  var  slide = document.getElementById("slide");
+  const slideArray = slide.childNodes;
+  const images = [];
   images.push("Pictures/ParkingGarage.jpg");
-  images.push("Pictures/GoldenGate.jpg");
+  images.push("Pictures/GoldenGateSmall.jpg");
+  // images.push("Pictures/MeSmall.jpg");
+  images.push("Pictures/Shark.jpg");
+  images.push("Pictures/Electrical-Station-Small.jpg");
+  images.push("Pictures/DallasSmall.jpg");
+  images.push("Pictures/GoldenGateDark.jpg");
+  images.push("Pictures/GraveyardSunsetSmall.jpg");
 
   function appendImages() {
     for (i = 0; i < images.length; i++) {
@@ -37,10 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fadeOut(slideArray[index]);
-
     index++;
-
-
 
     if (index === slideArray.length) {
       index = 0;
@@ -48,11 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fadeIn(slideArray[index]);
 
-
     setTimeout(function() {
         startSlide();
       },
-      3000);
+      4000);
   }
 
   appendImages(images);

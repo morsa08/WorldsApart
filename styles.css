@@ -51,7 +51,6 @@ a {
   font-size: 30px;
 }
 
-
 .colorWipeContainer {
   margin: 0;
   padding: 0;
@@ -80,7 +79,6 @@ a {
   transition: all 0.5s;
 }
 
-
 .colorWipe:hover::before,
 .colorWipe:hover::after,
 .colorwipe:hover a::before {
@@ -107,23 +105,26 @@ a {
   justify-content: center;
 }
 
-#slide{
-  height: 100%;
+#slide {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #slide img {
   position: absolute;
-  width: 100%;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-height: 100%;
   opacity: 0;
   transition: 3s;
 }
 
 #slide img.fade {
-  width: 100%;
   opacity: 1;
 }
-
-
 
 .svg-inline--fa {
   width: 0.5em;

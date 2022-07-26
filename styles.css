@@ -142,10 +142,7 @@ a {
  }
 
 .worldsApart{
-  background-image: url(Pictures/GraveyardSunsetSmall.jpg);
-  -webkit-background-clip: text;
-  background-clip: text;
-animation-name: txtSlide;
+ animation-name: txtSlide;
 animation-duration: 20s;
 animation-iteration-count: infinite;
  display: flex;

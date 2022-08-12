@@ -18,15 +18,19 @@ body {
 }
 
 .Toolbar {
-  width: auto;
-  margin: 0 10%;
+  z-index: 2;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0%;
-  border-radius: 1px;
-  border-style: solid;
-  border-color: rgba(255, 255, 255, 0.30);
+  top: 50%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.toolbarContainer{
+width: 100%;
+z-index: 0;
 }
 
 a {
@@ -35,8 +39,8 @@ a {
 }
 
 .Toolbar a {
-  font-family: "future";
-  display: block;
+    font-family: "future";
+  display: flex;
   float: left;
   text-align: center;
   color: white;
@@ -44,23 +48,16 @@ a {
   font-size: 30px;
 }
 
-.colorWipeContainer {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-}
 
-.colorWipe {
+
+.row-item {
   position: relative;
   padding: 0 20px;
   height: 100%;
   display: flex;
 }
 
-.colorWipe::before {
+.row-item::before {
   content: "";
   position: absolute;
   height: 2%;
@@ -72,9 +69,9 @@ a {
   transition: all 0.5s;
 }
 
-.colorWipe:hover::before,
-.colorWipe:hover::after,
-.colorwipe:hover a::before {
+.row-item:hover::before,
+.row-item:hover::after,
+.row-item:hover a::before {
   width: 100%;
 }
 

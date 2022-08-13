@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
   images.push("Pictures/ParkingGarage.jpg");
   images.push("Pictures/GoldenGateSmall.jpg");
   // images.push("Pictures/MeSmall.jpg");
-  // images.push("Pictures/Shark.jpg");
+  images.push("Pictures/Shark.jpg");
   images.push("Pictures/Electrical-Station-Small.jpg");
   images.push("Pictures/DallasSmall.jpg");
   images.push("Pictures/GoldenGateDark.jpg");
-  // images.push("Pictures/GraveyardSunsetSmall.jpg");
+  images.push("Pictures/GraveyardSunsetSmall.jpg");
 
   function appendImages() {
     for (i = 0; i < images.length; i++) {

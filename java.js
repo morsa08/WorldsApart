@@ -13,8 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = [];
   images.push("Pictures/ParkingGarage.jpg");
   images.push("Pictures/GoldenGateSmall.jpg");
-  // images.push("Pictures/MeSmall.jpg");
-  images.push("Pictures/Shark.jpg");
+   images.push("Pictures/Shark.jpg");
   images.push("Pictures/Electrical-Station-Small.jpg");
   images.push("Pictures/DallasSmall.jpg");
   images.push("Pictures/GoldenGateDark.jpg");

@@ -16,6 +16,21 @@ html {
   width: 100%;
 }
 
+
+.gridContainer{
+display: grid;
+grid-template-columns: auto auto auto;
+grid-column-gap: 1rem;
+grid-row-gap: 1rem;
+align-items: stretch;
+
+}
+
+.grid-item{
+
+width: 100%;
+}
+
 .hidden {
   display: none;
 }
@@ -45,13 +60,26 @@ a {
   z-index: 1;
 }
 
-.Toolbar a {
+.row-item a {
   font-family: "future";
   text-align: center;
   color: white;
   font-size: 2.3rem;
   text-decoration: none;
 }
+
+ .ToolbarBottom{
+
+   z-index: 1;
+   position: relative;
+   top: 1.5rem;
+   width: 100%;
+   display: grid;
+   grid-template-columns: auto auto auto;
+   align-content: center;
+   justify-content: space-around;
+
+ }
 
 .row-item {
   position: relative;

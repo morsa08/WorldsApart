@@ -21,17 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var counter = 0;
 
-   function allLoadedCallback() {
+    function allLoadedCallback() {
       document.getElementsByClassName("loadContainer")[0].className = "loadContainerHidden";
     }
 
-   function onLoadCallback() {
+    function onLoadCallback() {
       counter++;
-      if (counter == (slideArray.length -1)) {
-
+      if (counter == (photoArray.length - 1)) {
         allLoadedCallback();
       }
-
     }
 
 
@@ -71,11 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         4000);
     }
 
+    for (let x = 0; x < photoArray.length; x++) {
+      photoArray[x].onload = onLoadCallback();
+    }
+
     appendImages(photoArray);
 
 
-    for (let x = 0; x< photoArray.length; x++){
-    photoArray[x].onload = onLoadCallback() ;}
 
     startSlide(slide, index);
   }

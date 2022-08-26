@@ -19,11 +19,14 @@ if (slide) {
 
  function allLoadedCallback() {
   document.getElementsByClassName("loadContainer")[0].className = "loadContainerHidden";
+      console.log("all loaded callback triggered");
 }
 
 function onLoadCallback() {
   counter++;
-  if (counter == (photoArray.length - 1)) {
+  console.log("photo accounted for ");
+  if (counter == (photoArray.length)) {
+    console.log("all loaded");
     allLoadedCallback();
   }
 }
@@ -32,9 +35,10 @@ function onLoadCallback() {
 function appendImages() {
   for (i = 0; i < photoArray.length; i++) {
     newImage = document.createElement("img");
+    newImage.onload = (onLoadCallback);
     newImage.src = photoArray[i];
-    newImage.onload = onLoadCallback();
     slide.appendChild(newImage);
+    console.log(newImage);
   }
 }
 

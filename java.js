@@ -1,16 +1,15 @@
 /*jshint esversion: 6 */
 
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-
+  var counter = 0;
   var index = 0;
   var slide = document.getElementById("slide");
+  const photoArray = [];
+  var slideArray;
+
+  // IF SLIDE DIV EXISTS THEN PUSH PHOTOS INTO SLIDEARRAY
   if (slide) {
-    const slideArray = slide.childNodes;
-    const photoArray = [];
+    slideArray = slide.childNodes;
+
     photoArray.push("Pictures/ParkingGarage.jpg");
     photoArray.push("Pictures/GoldenGateSmall.jpg");
     photoArray.push("Pictures/Shark.jpg");
@@ -18,8 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     photoArray.push("Pictures/DallasSmall.jpg");
     photoArray.push("Pictures/GoldenGateDark.jpg");
     photoArray.push("Pictures/GraveyardSunsetSmall.jpg");
+  }
 
-    var counter = 0;
+  for (let x = 0; x < photoArray.length - 1; x++) {
+    photoArray[x].onload = onLoadCallback();
+  }
+
 
     function allLoadedCallback() {
       document.getElementsByClassName("loadContainer")[0].className = "loadContainerHidden";
@@ -31,11 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         allLoadedCallback();
       }
     }
-
-
-
-
-
 
     function appendImages() {
       for (i = 0; i < photoArray.length; i++) {
@@ -69,14 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         4000);
     }
 
-    for (let x = 0; x < photoArray.length; x++) {
-      photoArray[x].onload = onLoadCallback();
-    }
 
     appendImages(photoArray);
-
-
-
     startSlide(slide, index);
-  }
-});

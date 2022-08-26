@@ -17,11 +17,7 @@ if (slide) {
   photoArray.push("Pictures/GraveyardSunsetSmall.jpg");
 }
 
-// for (let x = 0; x < photoArray.length - 1; x++) {
-//   photoArray[x].onload = onLoadCallback();
-// }
-
-function allLoadedCallback() {
+ function allLoadedCallback() {
   document.getElementsByClassName("loadContainer")[0].className = "loadContainerHidden";
 }
 
@@ -33,14 +29,11 @@ function onLoadCallback() {
 }
 
 
-
-
-
 function appendImages() {
   for (i = 0; i < photoArray.length; i++) {
     newImage = document.createElement("img");
     newImage.src = photoArray[i];
-    photoArray[i].onload = onLoadCallback();
+    newImage.onload = onLoadCallback();
     slide.appendChild(newImage);
   }
 }

@@ -45,6 +45,7 @@ display: none;
    width: 100%;
    background-color: black;
    z-index: 2;
+   position: absolute;
 }
 
 .loadIcon{

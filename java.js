@@ -25,7 +25,7 @@ if (slide) {
 function onLoadCallback() {
   counter++;
   console.log("photo accounted for ");
-  if (counter ==  2 ) {
+  if (counter == (photoArray.length)) {
     console.log("all loaded");
     allLoadedCallback();
   }

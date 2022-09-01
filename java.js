@@ -25,12 +25,11 @@ if (slide) {
 function onLoadCallback() {
   counter++;
   console.log("photo accounted for ");
-  if (counter == (photoArray.length)) {
+  if (counter ==  2 ) {
     console.log("all loaded");
     allLoadedCallback();
   }
 }
-
 
 function appendImages() {
   for (i = 0; i < photoArray.length; i++) {
@@ -59,13 +58,11 @@ function startSlide() {
   }
 
   fadeIn(slideArray[index]);
-
   setTimeout(function() {
       startSlide();
     },
     4000);
 }
-
 
 appendImages(photoArray);
 startSlide(slide, index);

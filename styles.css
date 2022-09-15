@@ -16,42 +16,40 @@ html {
   width: 100%;
 }
 
-
-.gridContainer{
-display: grid;
-grid-template-columns: auto auto auto;
-grid-column-gap: 1rem;
-grid-row-gap: 1rem;
-align-items: stretch;
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  align-items: stretch;
 }
 
-.grid-item{
-width: 100%;
+.grid-item {
+  width: 100%;
 }
 
 .hidden {
   display: none;
 }
 
-.loadContainerHidden{
-display: none;
+.loadContainerHidden {
+  display: none;
 }
 
-.loadContainer{
+.loadContainer {
   justify-content: center;
- align-items: center;
-   display: flex;
-   height: 100%;
-   width: 100%;
-   background-color: black;
-   z-index: 2;
-   position: absolute;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 2;
+  position: absolute;
 }
 
-.loadIcon{
- justify-content: center;
-align-items: center;
-
+.loadIcon {
+  justify-content: center;
+  align-items: center;
 }
 
 .mainBackground {
@@ -74,9 +72,7 @@ align-items: center;
   z-index: 0;
 }
 
-a {
-
-}
+a {}
 
 .row-item a {
   font-family: "future";
@@ -86,17 +82,16 @@ a {
   text-decoration: none;
 }
 
- .ToolbarBottom{
-   z-index: 1;
-   position: fixed;
-   bottom:5%;
-   width: 100%;
-   display: grid;
-   grid-template-columns: auto auto auto;
-   align-content: center;
-   justify-content: space-around;
-
- }
+.ToolbarBottom {
+  z-index: 1;
+  position: fixed;
+  bottom: 5%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-content: center;
+  justify-content: space-around;
+}
 
 .row-item {
   position: relative;
@@ -166,4 +161,19 @@ a {
 
 .svg-inline--fa {
   width: 0.5em;
+}
+
+@media screen and (max-width: 769px) {
+  .Toolbar {
+    top: 0;
+    height: 100%;
+    grid-template-columns: auto;
+    grid-row-gap: 25%;
+  }
+
+  .row-item{justify-content: center;}
+
+.row-item a{
+  font-size: 4.3rem;
+}
 }

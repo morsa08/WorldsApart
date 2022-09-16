@@ -163,7 +163,7 @@ a {}
   width: 0.5em;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 900px) {
   .Toolbar {
     top: 0;
     height: 100%;

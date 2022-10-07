@@ -14,12 +14,11 @@ if (slide) {
   photoArray.push("Pictures/Electrical-Station-Small.jpg");
   photoArray.push("Pictures/DallasSmall.jpg");
   photoArray.push("Pictures/GoldenGateDark.jpg");
-  photoArray.push("Pictures/GraveyardSunsetSmall.jpg");
-}
+    }
 
- function allLoadedCallback() {
+function allLoadedCallback() {
   document.getElementsByClassName("loadContainer")[0].className = "loadContainerHidden";
-      console.log("all loaded callback triggered");
+  console.log("all loaded callback triggered");
 }
 
 function onLoadCallback() {

@@ -18,7 +18,7 @@ html {
 
 .gridContainer {
   display: grid;
-  grid-template-columns: auto auto auto;
+  /* grid-template-columns: auto auto auto; */
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
   align-items: stretch;
